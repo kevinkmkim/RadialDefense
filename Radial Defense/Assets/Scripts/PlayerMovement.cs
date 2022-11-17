@@ -57,24 +57,15 @@ public class PlayerMovement : MonoBehaviour
         yield break;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Input.location.Start();
         Input.compass.enabled = true;
-        // Debug.Log(Input.location.isEnabledByUser);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // float currentMagneticHeading = (float)Math.Round(Input.compass.magneticHeading, 2);
-        // Debug.Log(Input.compass.magneticHeading);
-        // Debug.Log(Input.compass.trueHeading);
-        // Debug.Log(Input.location.status);
-        // Debug.Log(Input.compass.enabled);
         transform.rotation =
             Quaternion.Euler(0, 0, -Input.compass.magneticHeading);
-        Debug.Log(transform.rotation);
     }
 }
