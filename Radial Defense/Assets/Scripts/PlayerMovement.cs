@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    public float runSpeed = 40f;
+
     public void Awake()
     {
         StartCoroutine(InitializeLocation());
@@ -67,5 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.rotation =
             Quaternion.Euler(0, 0, -Input.compass.magneticHeading);
+
+        // movement = joystick * runSpeed;
     }
 }
