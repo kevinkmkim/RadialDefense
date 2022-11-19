@@ -15,11 +15,19 @@ public class Joystick : MonoBehaviour
     [SerializeField]
     private float radius;
 
+    public GameObject player;
+    private CharacterController characterController;
+
+    [SerializeField]
+    private float speed;
+
     void Start()
     {
         joystick = transform.GetChild(0).gameObject;
         radius = 0.3f;
         touched = false;
+        speed = 5;
+        characterController = player.GetComponent<CharacterController>();
     }
 
     void Update()
@@ -52,6 +60,28 @@ public class Joystick : MonoBehaviour
                 {
                     joystick.transform.localPosition /= vectorLength / radius;
                 }
+
+                float xMovement = joystick.transform.localPosition.x * Time.deltaTime * speed;
+                float yMovement = joystick.transform.localPosition.y * Time.deltaTime * speed;
+
+
+                Vector3 playerMovement = player.transform.right * xMovement + player.transform.up * yMovement;
+                characterController.Move(playerMovement);
+
+                // characterController.Move(player.transform.forward * joystick.transform.localPosition.x *
+                //         Time.deltaTime *
+                //         speed);
+                
+
+                // player.transform.position =
+                //     player.transform.position +
+                //     new Vector3(joystick.transform.localPosition.x *
+                //         Time.deltaTime *
+                //         speed,
+                //         joystick.transform.localPosition.y *
+                //         Time.deltaTime *
+                //         speed,
+                //         0);
             }
         }
         else
