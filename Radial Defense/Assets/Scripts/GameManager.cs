@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
             if (!fadeComplete)
             {
                 controllerPanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 5;
-                // controllerPanel.GetComponent<CanvasGroup>().alpha += 0.002f;
                 if (controllerPanel.GetComponent<CanvasGroup>().alpha >= 1)
                 {
                     fadeComplete = true;

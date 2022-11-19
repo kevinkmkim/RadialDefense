@@ -49,6 +49,7 @@ public class Joystick : MonoBehaviour
             )
             {
                 touched = true;
+                Debug.Log("touched");
             }
 
             if (touched)
@@ -67,21 +68,6 @@ public class Joystick : MonoBehaviour
 
                 Vector3 playerMovement = player.transform.right * xMovement + player.transform.up * yMovement;
                 characterController.Move(playerMovement);
-
-                // characterController.Move(player.transform.forward * joystick.transform.localPosition.x *
-                //         Time.deltaTime *
-                //         speed);
-                
-
-                // player.transform.position =
-                //     player.transform.position +
-                //     new Vector3(joystick.transform.localPosition.x *
-                //         Time.deltaTime *
-                //         speed,
-                //         joystick.transform.localPosition.y *
-                //         Time.deltaTime *
-                //         speed,
-                //         0);
             }
         }
         else
