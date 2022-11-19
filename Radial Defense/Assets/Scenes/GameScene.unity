@@ -756,13 +756,14 @@ GameObject:
   - component: {fileID: 578234243}
   - component: {fileID: 578234245}
   - component: {fileID: 578234244}
+  - component: {fileID: 578234246}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Controller Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &578234243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -823,6 +824,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578234242}
   m_CullTransparentMesh: 1
+--- !u!225 &578234246
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578234242}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &589661199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,13 +1405,14 @@ GameObject:
   - component: {fileID: 703407228}
   - component: {fileID: 703407230}
   - component: {fileID: 703407229}
+  - component: {fileID: 703407231}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Button Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &703407228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1459,6 +1473,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703407227}
   m_CullTransparentMesh: 1
+--- !u!225 &703407231
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703407227}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &755816179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,6 +2632,7 @@ MonoBehaviour:
   modeButton: {fileID: 755816179}
   movementController: {fileID: 773946813}
   attackController: {fileID: 301361233}
+  controllerPanel: {fileID: 578234242}
 --- !u!4 &1682390179
 Transform:
   m_ObjectHideFlags: 0

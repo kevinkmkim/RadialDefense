@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,9 +24,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject attackController;
 
+    [SerializeField]
+    private GameObject controllerPanel;
+
+    private bool fadeComplete;
+
     void Start()
     {
         gameOn = false;
+        fadeComplete = false;
     }
 
     void Update()
@@ -36,6 +43,16 @@ public class GameManager : MonoBehaviour
         }
         if (gameOn)
         {
+            if (!fadeComplete)
+            {
+                controllerPanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 5;
+                // controllerPanel.GetComponent<CanvasGroup>().alpha += 0.002f;
+                if (controllerPanel.GetComponent<CanvasGroup>().alpha >= 1)
+                {
+                    fadeComplete = true;
+                }
+            }
+
             cam.transform.localPosition =
                 Vector3
                     .Lerp(cam.transform.localPosition,
@@ -62,7 +79,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         characterButton.SetActive(false);
         modeButton.SetActive(false);
-        movementController.SetActive(true);
-        attackController.SetActive(true);
+        // movementController.SetActive(true);
+        // attackController.SetActive(true);
+        controllerPanel.SetActive(true);
     }
 }

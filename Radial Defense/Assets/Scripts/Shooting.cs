@@ -9,15 +9,6 @@ public class Shooting : MonoBehaviour
 
     public float bulletForce = 20f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        // if (Input.touchCount > 0)
-        // {
-        //     Shoot();
-        // }
-    }
-
     public void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
