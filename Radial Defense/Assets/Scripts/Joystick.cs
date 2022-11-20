@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Joystick : MonoBehaviour
+public class Joystick : MonoBehaviour, IDragHandler
 {
     private GameObject joystick;
 
@@ -21,6 +21,8 @@ public class Joystick : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    private Vector2 posInput;
+
     void Start()
     {
         joystick = transform.GetChild(0).gameObject;
@@ -30,10 +32,20 @@ public class Joystick : MonoBehaviour
         characterController = player.GetComponent<CharacterController>();
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponent<Image>().rectTransform, eventData.position, eventData.pressEventCamera, out posInput))
+        {
+            Debug.Log(posInput.x.ToString());
+        }
+    }
+
     void Update()
     {
         if (Input.touchCount > 0)
         {
+
+
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition =
                 Camera.main.ScreenToWorldPoint(touch.position);
