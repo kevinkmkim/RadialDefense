@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     void Start()
     {
         StartCoroutine(WaitAndDestroy());
@@ -15,12 +14,12 @@ public class Bullet : MonoBehaviour
     {
         // GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
         // Destroy(effect, 5f);
-        Destroy(gameObject);
+        Destroy (gameObject);
     }
 
     IEnumerator WaitAndDestroy()
     {
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        Destroy (gameObject);
     }
 }

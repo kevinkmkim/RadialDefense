@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
     public float runSpeed = 40f;
 
     public void Awake()

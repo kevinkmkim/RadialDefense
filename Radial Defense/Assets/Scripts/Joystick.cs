@@ -16,6 +16,7 @@ public class Joystick : MonoBehaviour, IDragHandler
     private float radius;
 
     public GameObject player;
+
     private CharacterController characterController;
 
     [SerializeField]
@@ -34,7 +35,14 @@ public class Joystick : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponent<Image>().rectTransform, eventData.position, eventData.pressEventCamera, out posInput))
+        if (
+            RectTransformUtility
+                .ScreenPointToLocalPointInRectangle(GetComponent<Image>()
+                    .rectTransform,
+                eventData.position,
+                eventData.pressEventCamera,
+                out posInput)
+        )
         {
             Debug.Log(posInput.x.ToString());
         }
@@ -44,8 +52,6 @@ public class Joystick : MonoBehaviour, IDragHandler
     {
         if (Input.touchCount > 0)
         {
-
-
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition =
                 Camera.main.ScreenToWorldPoint(touch.position);
@@ -74,12 +80,15 @@ public class Joystick : MonoBehaviour, IDragHandler
                     joystick.transform.localPosition /= vectorLength / radius;
                 }
 
-                float xMovement = joystick.transform.localPosition.x * Time.deltaTime * speed;
-                float yMovement = joystick.transform.localPosition.y * Time.deltaTime * speed;
+                float xMovement =
+                    joystick.transform.localPosition.x * Time.deltaTime * speed;
+                float yMovement =
+                    joystick.transform.localPosition.y * Time.deltaTime * speed;
 
-
-                Vector3 playerMovement = player.transform.right * xMovement + player.transform.up * yMovement;
-                characterController.Move(playerMovement);
+                Vector3 playerMovement =
+                    player.transform.right * xMovement +
+                    player.transform.up * yMovement;
+                characterController.Move (playerMovement);
             }
         }
         else

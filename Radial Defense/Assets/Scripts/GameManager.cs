@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
         {
             if (!fadeComplete)
             {
-                controllerPanel.GetComponent<CanvasGroup>().alpha += Time.deltaTime / 5;
+                controllerPanel.GetComponent<CanvasGroup>().alpha +=
+                    Time.deltaTime / 5;
                 if (controllerPanel.GetComponent<CanvasGroup>().alpha >= 1)
                 {
                     fadeComplete = true;
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         characterButton.SetActive(false);
         modeButton.SetActive(false);
+
         // movementController.SetActive(true);
         // attackController.SetActive(true);
         controllerPanel.SetActive(true);
