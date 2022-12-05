@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     public float runSpeed = 40f;
+    public Animator animator;
 
     public void Awake()
     {
@@ -69,6 +70,9 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.rotation =
             Quaternion.Euler(0, 0, -Input.compass.magneticHeading);
+        animator.speed = 1;
+
+        // animator.SetBool("isMoving", true);
 
         // movement = joystick * runSpeed;
     }
